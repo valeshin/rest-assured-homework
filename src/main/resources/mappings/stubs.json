@@ -1,0 +1,60 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/user/get/all"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "name": "Test user",
+          "course": "QA",
+          "email": "test@test.test",
+          "age": 23
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPattern": "/user/get/(\\d+)"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "name": "Test user",
+          "score": 78
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/course/get/all"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": [
+          {
+            "name": "QA java",
+            "price": 15000
+          },
+          {
+            "name": "Java",
+            "price": 12000
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    }
+  ]
+}

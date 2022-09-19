@@ -1,4 +1,4 @@
-# ДЗ #3: Rest-assured
+# ДЗ #3: Rest-assured + stubs
 ___
 
 &nbsp;
@@ -12,6 +12,12 @@ ___
 * `mvn clean test` - запустить все тесты
 * `mvn clean test -Dtest=TestClassName` - запуск конкретного тестового класса
 * `mvn clean test -Dtest=TestClassName#testName` - запуск конкретного теста
+
+&nbsp;
+### Запуск stub-сервера в docker с описанными в json-файле стабами:
+Для запуска stub-сервера в docker с заранее сконфигурированными в src/main/resources/mappings/stubs.json стабами
+выполнить скрипт start_wiremock.sh
+Для добавления новых стабов таким образом необходимо добавить их в src/main/resources/mappings/stubs.json
 
 &nbsp;
 ### Тест-кейсы:

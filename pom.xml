@@ -17,6 +17,7 @@
         <rest-assured.version>4.3.0</rest-assured.version>
         <jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
         <json-schema-validator.version>4.3.1</json-schema-validator.version>
+        <wiremock.version>2.33.2</wiremock.version>
 
 
         <surefire.plugin.version>2.22.2</surefire.plugin.version>
@@ -25,6 +26,9 @@
         <findbugs.version>3.0.5</findbugs.version>
 
         <base.url>https://petstore.swagger.io/v2</base.url>
+        <wiremock.host>localhost</wiremock.host>
+        <wiremock.port>8090</wiremock.port>
+        <wiremock.remote>false</wiremock.remote>
     </properties>
 
 
@@ -57,6 +61,11 @@
             <artifactId>json-schema-validator</artifactId>
             <version>${json-schema-validator.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock-jre8</artifactId>
+            <version>${wiremock.version}</version>
+        </dependency>
     </dependencies>
 
 
@@ -70,6 +79,9 @@
                     <systemPropertyVariables>
                         <base.url>${base.url}</base.url>
                         <test.project.status>test</test.project.status>
+                        <wiremock.host>${wiremock.host}</wiremock.host>
+                        <wiremock.port>${wiremock.port}</wiremock.port>
+                        <wiremock.remote>${wiremock.remote}</wiremock.remote>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
