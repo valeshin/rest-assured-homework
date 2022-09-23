@@ -4,6 +4,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
 import static org.hamcrest.Matchers.equalTo;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
+import com.github.tomakehurst.wiremock.client.WireMock;
 import dto.Course;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
@@ -24,14 +25,6 @@ import java.util.stream.Stream;
 
 public class UserCourseTests {
 
-    {
-        new UserStub()
-                .registerStubGetUserAll()
-                .registerStubGetUserScore();
-        new CourseStub()
-                .registerStubGetCourseAll();
-    }
-
     public static ResponseSpecification respSpec;
     private static WireMockServer wireMockServer;
 
@@ -47,12 +40,19 @@ public class UserCourseTests {
             wireMockServer.start();
         }
         configureFor(System.getProperty("wiremock.host"), Integer.parseInt(System.getProperty("wiremock.port")));
+
+        new UserStub()
+                .registerStubGetUserAll()
+                .registerStubGetUserScore();
+        new CourseStub()
+                .registerStubGetCourseAll();
     }
 
     @AfterAll
     public static void stopMock() {
         if (System.getProperty("wiremock.remote").equalsIgnoreCase("false"))
             wireMockServer.stop();
+        WireMock.resetToDefault();
     }
 
     @Test
