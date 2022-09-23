@@ -30,7 +30,6 @@ public class UserApi {
                     .log().all();
     }
 
-
     public ValidatableResponse getUserScore(String id) {
         return given(rspec)
                 .pathParam("id", id)
@@ -39,5 +38,9 @@ public class UserApi {
                     .get("/get/{id}")
                 .then()
                     .log().all();
+    }
+
+    public ValidatableResponse getUserScore(int id) {
+        return getUserScore(String.valueOf(id));
     }
 }

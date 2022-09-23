@@ -18,7 +18,7 @@ public class UserStub {
                 .put("age", 23);
 
 
-        stubFor(get(urlMatching(String.format("%s/(\\d+)", basePath)))
+        stubFor(get(urlMatching(String.format("%s/all", basePath)))
                 .willReturn(jsonResponse(user, 200)));
 
         return this;
@@ -30,7 +30,7 @@ public class UserStub {
                 .put("score", 78);
 
 
-        stubFor(get(urlMatching(String.format("%s/all", basePath)))
+        stubFor(get(urlMatching(String.format("%s/(\\d+)", basePath)))
                 .willReturn(jsonResponse(score, 200)));
 
         return this;

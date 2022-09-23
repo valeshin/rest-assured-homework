@@ -18,6 +18,8 @@ ___
 Для запуска stub-сервера в docker с заранее сконфигурированными в src/main/resources/mappings/stubs.json стабами
 выполнить скрипт start_wiremock.sh
 Для добавления новых стабов таким образом необходимо добавить их в src/main/resources/mappings/stubs.json
+Запуск тестов с локально поднятым wiremock:
+- `mvn clean test -Dwiremock.remote=true`
 
 &nbsp;
 ### Тест-кейсы:
